@@ -1,7 +1,11 @@
 ﻿// See https://aka.ms/new-console-template for more information
 using AdoDotNet.ConsoleApp.AdoDotNetExamples;
+using AdoDotNet.ConsoleApp.DapperExamples;
 
-AdoDotNetExample adoDotNetExample = new AdoDotNetExample();
+DapperExample dapperExample = new DapperExample();
 //adoDotNetExample.Create("Myint Myint","U Mya Aye","Myint Myint is Eco Student");
-adoDotNetExample.Delete(3);
+//dapperExample.Create("Hnin Hnin","Thaung Myint","Hnin Hnin is Myanmar Student");
+//dapperExample.Delete(9);
+//dapperExample.Read();
+
 
