@@ -85,7 +85,7 @@ namespace AdoDotNet.ConsoleApp.EfcoreExamples
                 Console.WriteLine("No Data Found");
                 return;
             }
-            
+
             db.Student.Remove(item);
             int result = db.SaveChanges();
             string message = result > 0 ? "Delete Successful" : "Fail";
