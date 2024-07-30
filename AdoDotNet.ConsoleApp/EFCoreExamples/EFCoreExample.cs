@@ -1,21 +1,19 @@
-﻿using AdoDotNet.ConsoleApp.EFCoreExamples;
-using AdoDotNet.ConsoleApp.Models;
-using Microsoft.EntityFrameworkCore.Scaffolding.Metadata;
+﻿using AdoDotNet.ConsoleApp.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AdoDotNet.ConsoleApp.EfcoreExamples
+namespace AdoDotNet.ConsoleApp.EFCoreExample
 {
     public class EFCoreExample
     {
         public void Read()
         {
-            AppDbcontext db = new AppDbcontext();
-            //List<Models.StudentModel> lst = db.Student.ToList();
-            List<StudentModel> lst = db.Student.ToList();
+            AppDbContext db = new AppDbContext();
+            List<StudentModel> lst = db.Students.ToList();
+
             foreach (StudentModel item in lst)
             {
                 Console.WriteLine(item.Id);
@@ -27,71 +25,63 @@ namespace AdoDotNet.ConsoleApp.EfcoreExamples
 
         public void Edit(int Id)
         {
-            AppDbcontext db = new AppDbcontext();
-            StudentModel item = db.Student.FirstOrDefault(item => item.Id == Id);
-            if (item != null)
-            {
-                Console.WriteLine(item.Id);
-                Console.WriteLine(item.StuName);
-                Console.WriteLine(item.FatherName);
-                Console.WriteLine(item.StuContent);
-            }
-            else
-            {
-                Console.WriteLine("No Data Found");
-            }
-        }
-
-        public void Create(string stuName, string fatherName, string stuContent)
-        {
-            StudentModel student = new StudentModel()
-            {
-                StuName = stuName,
-                FatherName = fatherName,
-                StuContent = stuContent
-            };
-            AppDbcontext db = new AppDbcontext();
-            db.Student.Add(student);
-            int result = db.SaveChanges();
-            string message = result > 0 ? "Save Successful" : "Fail";
-            db.SaveChanges();
-            Console.WriteLine(message);
-        }
-
-        public void Update(int Id, string stuName, string fatherName, string stuContent)
-        {
-            AppDbcontext db = new AppDbcontext();
-            StudentModel item = db.Student.FirstOrDefault(item => item.Id == Id);
+            AppDbContext db = new AppDbContext();
+            StudentModel? item = db.Students.FirstOrDefault(item => item.Id == Id);
             if (item is null)
             {
                 Console.WriteLine("No Data Found");
                 return;
             }
-            item.StuName = stuName;
-            item.FatherName = fatherName;
-            item.StuContent = stuContent;
+            Console.WriteLine(item.Id);
+            Console.WriteLine(item.StuName);
+            Console.WriteLine(item.FatherName);
+            Console.WriteLine(item.StuContent);
+        }
 
+        public void Create(string StuName, string FatherName, string StuContent)
+        {
+            StudentModel student = new StudentModel()
+            {
+                StuName = StuName,
+                FatherName = FatherName,
+                StuContent = StuContent
+            };
+            AppDbContext db = new AppDbContext();
+            db.Students.Add(student);
             int result = db.SaveChanges();
-            string message = result > 0 ? "Update Successful" : "Fail";
-            Console.WriteLine(message);
+            string message = result > 0 ? "Create Successful" : "Failed";
+            Console.Write(message);
+        }
+
+        public void Update(int Id, string StuName, string FatherName, string StuContent)
+        {
+            AppDbContext db = new AppDbContext();
+            StudentModel? item = db.Students.FirstOrDefault(item => item.Id == Id);
+            if (item is null)
+            {
+                Console.WriteLine("No Data Found");
+            }
+
+            item.StuName = StuName;
+            item.FatherName = FatherName;
+            item.StuContent = StuContent;
+            int result = db.SaveChanges();
+            string message = result > 0 ? "Update Successful" : "Failed";
+            Console.Write(message);
         }
 
         public void Delete(int Id)
         {
-            AppDbcontext db = new AppDbcontext();
-            StudentModel item = db.Student.FirstOrDefault(item => item.Id == Id);
+            AppDbContext db = new AppDbContext();
+            StudentModel? item = db.Students.FirstOrDefault(item => item.Id == Id);
             if (item is null)
             {
                 Console.WriteLine("No Data Found");
-                return;
             }
-
-            db.Student.Remove(item);
+            db.Students.Remove(item);
             int result = db.SaveChanges();
-            string message = result > 0 ? "Delete Successful" : "Fail";
-            Console.WriteLine(message);
+            string message = result > 0 ? "Delete Successful" : "Failed";
+            Console.Write(message);
         }
-
-
     }
 }

@@ -1,7 +1,8 @@
 ﻿// See https://aka.ms/new-console-template for more information
 using AdoDotNet.ConsoleApp.AdoDotNetExamples;
 using AdoDotNet.ConsoleApp.DapperExamples;
-using AdoDotNet.ConsoleApp.EfcoreExamples;
+using AdoDotNet.ConsoleApp.EFCoreExample;
+using AdoDotNet.ConsoleApp.HttpClientExamples;
 
 //DapperExample dapperExample = new DapperExample();
 //adoDotNetExample.Create("Myint Myint","U Mya Aye","Myint Myint is Eco Student");
@@ -9,9 +10,17 @@ using AdoDotNet.ConsoleApp.EfcoreExamples;
 //dapperExample.Delete(9);
 //dapperExample.Read();
 
-EFCoreExample efcoreExample = new EFCoreExample();
-efcoreExample.Delete(4);
+//EFCoreExample eFCoreExample=new EFCoreExample();
+//eFCoreExample.Create("Hanni","U Aung Myo","Hanni is BackendStudent");
 
+Console.WriteLine("Waiting For Api...");
+    Console.ReadKey();
+
+HttpClientExample httpClientExample = new HttpClientExample();
+await httpClientExample.Run();
+Console.ReadKey();
+
+//
 
 
 
