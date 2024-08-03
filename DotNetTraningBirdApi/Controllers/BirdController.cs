@@ -19,15 +19,7 @@ namespace DotNetTraningBirdApi.Controllers
             {
                 string jsonString = await response.Content.ReadAsStringAsync();
                 List<BirdDataModel>? birds = JsonConvert.DeserializeObject<List<BirdDataModel>>(jsonString);
-                //List<BirdViewModel> list = birds.Select(bird => new BirdViewModel
-                //{
-                //    BirdId = bird.Id,
-                //    BirdName = bird.BirdMyanmarName,
-                //    Desc = bird.Description,
-                //    PhotoUrl = $"$"https://burma-project-ideas.vercel.app/birds/{bird.ImagePath}",
-                //}).ToList();
-                //List<BirdViewModel> list = birds.Select(bird => Change(bird)).ToList();
-                // List<BirdViewModel> list = birds.Select(bird =>Change(bird)).ToList();
+
                 List<BirdViewModel> lst = new List<BirdViewModel>();
 
                 foreach (var bird in birds)
@@ -43,23 +35,15 @@ namespace DotNetTraningBirdApi.Controllers
             }
         }
 
-        [HttpGet("{int id}")]
+        [HttpGet("{id}")]
         public async Task<IActionResult> Get(int id)
         {
             HttpClient client = new HttpClient();
-            var response = await client.GetAsync($"https://burma-project-ideas.vercel.app/birds/{id}");
+            var response = await client.GetAsync($"{_url}/{id}");
             if (response.IsSuccessStatusCode)
             {
                 string jsonString = await response.Content.ReadAsStringAsync();
                 BirdDataModel? bird = JsonConvert.DeserializeObject<BirdDataModel>(jsonString);
-
-                //var item = new BirdViewModel
-                //{
-                //    BirdId = bird.Id,
-                //    BirdName = bird.BirdMyanmarName,
-                //    Desc = bird.Description,
-                //    PhotoUrl = $"https://burma-project-ideas.vercel.app/birds/{bird.ImagePath}"
-                //};
                 var item = Change(bird);
                 return Ok(item);
             }
@@ -76,7 +60,7 @@ namespace DotNetTraningBirdApi.Controllers
                 BirdId = bird.Id,
                 BirdName = bird.BirdMyanmarName,
                 Desc = bird.Description,
-                PhotoUrl = $"https://burma-project-ideas.vercel.app/birds/{bird.ImagePath}"
+                PhotoUrl = $"{_url}/{bird.ImagePath}"
             };
             return item;
         }

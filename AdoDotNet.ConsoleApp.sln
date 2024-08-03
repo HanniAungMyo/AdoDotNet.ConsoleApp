@@ -7,7 +7,14 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AdoDotNet.ConsoleApp", "Ado
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApi", "WebApi\WebApi.csproj", "{73573E7C-3E0B-438A-996E-33B99BA3EF35}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotNetTraningBirdApi", "DotNetTraningBirdApi\DotNetTraningBirdApi.csproj", "{DD62B623-C311-496D-9BDF-B1988ECD835C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DotNetTraningBirdApi", "DotNetTraningBirdApi\DotNetTraningBirdApi.csproj", "{DD62B623-C311-496D-9BDF-B1988ECD835C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DotNetTraningPickAPileApi", "DotNetTraningPickAPileApi\DotNetTraningPickAPileApi.csproj", "{85DCE21B-7757-4D3C-B134-5DFED2B5E8D4}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{17BF4703-3B3C-477B-AA8B-C279BC7D769C}"
+	ProjectSection(SolutionItems) = preProject
+		README.md = README.md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +34,10 @@ Global
 		{DD62B623-C311-496D-9BDF-B1988ECD835C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DD62B623-C311-496D-9BDF-B1988ECD835C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DD62B623-C311-496D-9BDF-B1988ECD835C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{85DCE21B-7757-4D3C-B134-5DFED2B5E8D4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{85DCE21B-7757-4D3C-B134-5DFED2B5E8D4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{85DCE21B-7757-4D3C-B134-5DFED2B5E8D4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{85DCE21B-7757-4D3C-B134-5DFED2B5E8D4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
