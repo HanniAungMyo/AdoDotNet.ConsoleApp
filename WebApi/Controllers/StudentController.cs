@@ -21,6 +21,17 @@ namespace WebApi.Controllers
             return Ok(lst);
         }
 
+        [HttpGet ("{id}")]
+        public IActionResult GetStudent(int id)
+        {
+            StudentModel? item = _db.Students.FirstOrDefault(item => item.Id == id);
+            if (item is null)
+            {
+                return NotFound("No Data Found");
+            }
+            return Ok(item);
+        }
+
         [HttpPost]
         public IActionResult CreateStudent(StudentModel student)
         {

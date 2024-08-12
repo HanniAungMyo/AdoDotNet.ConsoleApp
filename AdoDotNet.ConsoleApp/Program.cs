@@ -3,6 +3,8 @@ using AdoDotNet.ConsoleApp.AdoDotNetExamples;
 using AdoDotNet.ConsoleApp.DapperExamples;
 using AdoDotNet.ConsoleApp.EFCoreExample;
 using AdoDotNet.ConsoleApp.HttpClientExamples;
+using AdoDotNet.ConsoleApp.RefitExamples;
+using AdoDotNet.ConsoleApp.RestClientExamples;
 
 //DapperExample dapperExample = new DapperExample();
 //adoDotNetExample.Create("Myint Myint","U Mya Aye","Myint Myint is Eco Student");
@@ -14,12 +16,13 @@ using AdoDotNet.ConsoleApp.HttpClientExamples;
 //eFCoreExample.Create("Hanni","U Aung Myo","Hanni is BackendStudent");
 
 Console.WriteLine("Waiting For Api...");
-    Console.ReadKey();
 
-HttpClientExample httpClientExample = new HttpClientExample();
-await httpClientExample.Run();
-Console.ReadKey();
-
+//HttpClientExample httpClientExample = new HttpClientExample();
+//await httpClientExample.Run();
+//RestClientExample restClientExample = new RestClientExample();
+//await restClientExample.Run();
+RefitExample refitExample = new RefitExample();
+await refitExample.Run();
 //
 
 

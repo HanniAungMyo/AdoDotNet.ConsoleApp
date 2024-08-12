@@ -75,7 +75,7 @@ namespace AdoDotNet.ConsoleApp.HttpClientExamples
             string jsonStudent = JsonConvert.SerializeObject(student);
             HttpContent httpContent = new StringContent(jsonStudent, Encoding.UTF8, MediaTypeNames.Application.Json);
 
-            string url = $"https://localhost:7288/api/Student";
+            string url = "https://localhost:7288/api/Student";
             HttpClient Client = new HttpClient();
             HttpResponseMessage response = await Client.PostAsync(url, httpContent);
             if (response.IsSuccessStatusCode)
