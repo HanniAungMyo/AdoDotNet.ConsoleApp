@@ -34,6 +34,7 @@ namespace AdoDotNet.ConsoleApp.RefitExamples
                 Console.WriteLine(item.StuContent);
             }
         }
+       
         private async Task Edit(int id)
         {
             try
@@ -53,6 +54,7 @@ namespace AdoDotNet.ConsoleApp.RefitExamples
                 Console.WriteLine(ex.ToString());
             }
         }
+       
         public async Task Create(string StuName, string FatherName, string StuContent)
         {
            
@@ -77,7 +79,7 @@ namespace AdoDotNet.ConsoleApp.RefitExamples
                 Console.WriteLine(ex.ToString());
             }
         }
-
+      
         public async Task Update(int id, string StuName, string FatherName, string StuContent)
         {
             try

@@ -81,7 +81,7 @@ namespace AdoDotNet.ConsoleApp.HttpClientExamples
             if (response.IsSuccessStatusCode)
             {
                 string json = await response.Content.ReadAsStringAsync();
-                Console.WriteLine(await response.Content.ReadAsStringAsync());
+                Console.WriteLine(json);
 
             }
         }
