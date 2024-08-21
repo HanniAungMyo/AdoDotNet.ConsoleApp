@@ -1,0 +1,27 @@
+﻿@model List<StudentModel>
+@{
+    ViewData["Title"] = "Blog";
+    int count = 0;
+}
+<h4>Student</h4>
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">StudentName</th>
+            <th scope="col">FatherName</th>
+            <th scope="col">StuContent</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (StudentModel item in Model)
+        {
+            <tr>
+                <th scope="row">@(++count)</th>
+                <td>@item.StuName</td>
+                <td>@item.FatherName</td>
+                <td>@item.StuContent</td>
+            </tr>
+        }      
+    </tbody>
+</table>

@@ -14,20 +14,7 @@ namespace AdoDotNet.ConsoleApp.RestClientExamples
         private readonly string _apiUrl = "https://localhost:7288/api/Student";
         public async Task Run()
         {
-
-            // await Update(28,"Su Su","Maung Thein","Su Su Aye is Eco Student");
-            //await Create("Aye Aye", "U Maung Maung", "Aye Aye is MyanmarStudent");
-            //await Create("Hla Hla", "U Aung Min", "Hla Hla is English student");
-            //await Create("Su Su", "U Hla Aung", "Su Su is Math student");
-           // await Update(4,"Mu Mu", "U Khin Maung", "Mu Mu is IT student");
-            //await Create("Mya Mya", "U Maung Maung", "Mya Mya  is Eco student");
-
-            // await Read();
-
-           // await Create( "title 2", "author 3", "content 4");
-            //await Read();
-
-           await Delete(7);
+          await Delete(7);
         }
 
         private async Task Read()
