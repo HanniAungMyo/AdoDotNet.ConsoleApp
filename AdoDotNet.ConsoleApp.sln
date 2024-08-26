@@ -18,8 +18,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DotNetTraningSnakesApi", "DotNetTraningSnakesApi\DotNetTraningSnakesApi.csproj", "{EA8A88DA-823C-41B1-ABF8-CB9BF79B2497}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdoDotNetMvc", "AdoDotNetMvc\AdoDotNetMvc.csproj", "{C074EC97-03B3-4B4F-8F0E-D9A9AC575A28}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -46,10 +44,6 @@ Global
 		{EA8A88DA-823C-41B1-ABF8-CB9BF79B2497}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EA8A88DA-823C-41B1-ABF8-CB9BF79B2497}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EA8A88DA-823C-41B1-ABF8-CB9BF79B2497}.Release|Any CPU.Build.0 = Release|Any CPU
-		{C074EC97-03B3-4B4F-8F0E-D9A9AC575A28}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C074EC97-03B3-4B4F-8F0E-D9A9AC575A28}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C074EC97-03B3-4B4F-8F0E-D9A9AC575A28}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C074EC97-03B3-4B4F-8F0E-D9A9AC575A28}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
