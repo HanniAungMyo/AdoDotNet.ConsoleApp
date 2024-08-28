@@ -1,0 +1,38 @@
+﻿@model List<StudentModel>
+@{
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+    ViewData["Title"] = "Student Page";
+    int count = 0;
+}
+<h2>Student List</h2>
+<a href="Student/Create" type="button" class="btn btn-primary">Create</a>
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Student Name</th>
+            <th scope="col">Father Name</th>
+            <th scope="col">Student Content</th>
+            <th></th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (StudentModel item in Model)
+        {
+            <tr>
+                <th scope="row">@(++count)</th>
+                <td>@item.StuName</td>
+                <td>@item.FatherName</td>
+                <td>@item.StuContent</td>
+                <td>
+                    <a href="/Student/Edit/@item.Id" type="button" class="btn btn-warning">Edit</a>
+                </td>
+                <td>
+                    <a href="/Student/Delete/@item.Id" type="button" class="btn btn-danger">Delete</a>
+
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

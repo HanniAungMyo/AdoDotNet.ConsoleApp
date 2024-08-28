@@ -2,6 +2,7 @@
 using AdoDotNet.ConsoleApp.AdoDotNetExamples;
 using AdoDotNet.ConsoleApp.DapperEx;
 using AdoDotNet.ConsoleApp.DapperExamples;
+using AdoDotNet.ConsoleApp.EfCore;
 using AdoDotNet.ConsoleApp.EFCoreExample;
 using AdoDotNet.ConsoleApp.HttpClientExamples;
 using AdoDotNet.ConsoleApp.RefitExamples;
@@ -25,7 +26,7 @@ using AdoDotNet.ConsoleApp.RestClientExamples;
 //await restClientExample.Run();
 //RefitExample refitExample = new RefitExample();
 //await refitExample.Run();
-DapperEx dapper=new DapperEx();
+//DapperEx dapper=new DapperEx();
 //dapper.Edit(2);
 //dapper.Update(2, "Yadanar", "U Yan Aung", "He is IT Student.");
 //dapper.Create("ThuRa", "U Thu", "She is Bio Student");
@@ -33,6 +34,12 @@ DapperEx dapper=new DapperEx();
 
 //Dapper dapper = new Dapper();
 //
+//EfCore1 efCore1 = new EfCore1();
+////efCore1.Update(17,"Thazin", "U Zaw Naing", "Thazin is C# student");
+////efCore1.Read();
+////efCore1.Edit(1);
+////efCore1.Read();
+
 
 
 
