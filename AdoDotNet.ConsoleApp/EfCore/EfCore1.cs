@@ -9,74 +9,69 @@ namespace AdoDotNet.ConsoleApp.EfCore
 {
     internal class EfCore1
     {
-        AppDbContext _db = new AppDbContext();
+        AppDbContext db = new AppDbContext();
         public void Read()
         {
-
-            List<StudentModel> lst = _db.Students.ToList();
+            List<StudentModel> lst = db.Students.ToList();
             foreach (StudentModel item in lst)
             {
-                Console.WriteLine(item.Id);
                 Console.WriteLine(item.StuName);
                 Console.WriteLine(item.FatherName);
                 Console.WriteLine(item.StuContent);
-
-            };
+            }
         }
-
         public void Edit(int id)
         {
-            StudentModel? item = _db.Students.FirstOrDefault(x => x.Id == id);
-            if (item is null)
-            {
-                Console.WriteLine("No Data Foung");
-            }
-            Console.WriteLine(item?.StuName);
-            Console.WriteLine(item?.FatherName);
-            Console.WriteLine(item?.StuContent);
-        }
-
-        public void Create(string StuName, string FatherName, string StuContent)
-        {
-            StudentModel item = new StudentModel()
-            {
-                StuName = StuName,
-                FatherName =FatherName,
-                StuContent = StuContent
-            };
-            _db.Students.Add(item);
-            int result = _db.SaveChanges();
-            string message = result > 0 ? "Create Successful" : "Failed";
-            Console.WriteLine(message);
-        }
-
-        public void Update(int id, string StuName, string FatherName, string StuContent)
-        {
-            StudentModel? item = _db.Students.FirstOrDefault(item => item.Id == id);
-
+            StudentModel? item = db.Students.FirstOrDefault(x => x.Id == id);
             if (item is null)
             {
                 Console.WriteLine("No Data Found");
             }
-            item.StuName =StuName;
-            item.FatherName = FatherName;
-            item.StuContent =StuContent;
-            int result = _db.SaveChanges();
+            Console.WriteLine(item?.Id);
+            Console.WriteLine(item?.StuName);
+            Console.WriteLine(item?.FatherName);
+            Console.WriteLine(item?.StuContent);
+
+        }
+        public void Create(string name, string fatherName, string content)
+        {
+            StudentModel student = new StudentModel()
+            {
+                StuName = name,
+                FatherName = fatherName,
+                StuContent = content
+            };
+            db.Students.Add(student);
+            int result = db.SaveChanges();
+            string message = result > 0 ? "Create Successful" : "Failed";
+            Console.WriteLine(message);
+        }
+        public void Update(int id, string name, string fatherName, string content)
+        {
+            StudentModel? item = db.Students.FirstOrDefault(x => x.Id == id);
+            if (item is null)
+            {
+                Console.WriteLine("No Data Found");
+            }
+            item!.Id = id;
+            item.StuName = name;
+            item.FatherName = fatherName;
+            item.StuContent = content;
+            int result = db.SaveChanges();
             string message = result > 0 ? "Update Successful" : "Failed";
             Console.WriteLine(message);
         }
         public void Delete(int id)
         {
-            StudentModel? item = _db.Students.FirstOrDefault(x => x.Id == id);
+            StudentModel? item = db.Students.FirstOrDefault(x => x.Id == id);
             if (item is null)
             {
                 Console.WriteLine("No Data Found");
             }
-            _db.Students.Remove(item);
-            int result = _db.SaveChanges();
+            db.Students.Remove(item!);
+            int result = db.SaveChanges();
             string message = result > 0 ? "Delete Successful" : "Failed";
             Console.WriteLine(message);
-
         }
     }
 }

@@ -1,11 +1,9 @@
 ﻿// See https://aka.ms/new-console-template for more information
 using AdoDotNet.ConsoleApp.AdoDotNetExamples;
 using AdoDotNet.ConsoleApp.DapperEx;
-using AdoDotNet.ConsoleApp.DapperExamples;
 using AdoDotNet.ConsoleApp.EfCore;
-using AdoDotNet.ConsoleApp.EFCoreExample;
+using AdoDotNet.ConsoleApp.HTTPClient;
 using AdoDotNet.ConsoleApp.HttpClientExamples;
-using AdoDotNet.ConsoleApp.RefitExamples;
 using AdoDotNet.ConsoleApp.RestClientExamples;
 
 
@@ -34,12 +32,27 @@ using AdoDotNet.ConsoleApp.RestClientExamples;
 
 //Dapper dapper = new Dapper();
 //
-//EfCore1 efCore1 = new EfCore1();
 ////efCore1.Update(17,"Thazin", "U Zaw Naing", "Thazin is C# student");
-////efCore1.Read();
-////efCore1.Edit(1);
-////efCore1.Read();
+//EfCore1 efCore1 = new EfCore1();
+//efCore1.Update(3, "Nu Nu","U Hla Aung","Su Su is Math student");
+//efCore1.Read();
+//efCore1.Edit(2);
+//efCore1.Update(2, "Yadanar", "U Khin Zaw", "She is Bio Student");
+//efCore1.Read();
+//efCore1.Create("Naing Naing", "U Zaw Nain", "He is Bio Student");
+//efCore1.Delete(24);
 
+//HTTPClients http = new HTTPClients();
+//await http.Run();
 
+RestClientExample restClientExample = new RestClientExample();
+await restClientExample.run();
 
+//RefitExample refitExample=new RefitExample();
+//await refitExample.Run()
+//DapperEx ex=new DapperEx();
+//ex.Edit(3);
+
+//HttpClientExample ex=new HttpClientExample();
+//await ex.Run();
 

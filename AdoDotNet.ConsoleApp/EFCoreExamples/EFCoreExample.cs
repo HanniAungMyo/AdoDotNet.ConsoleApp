@@ -9,9 +9,9 @@ namespace AdoDotNet.ConsoleApp.EFCoreExample
 {
     public class EFCoreExample
     {
+        AppDbContext db = new AppDbContext();
         public void Read()
         {
-            AppDbContext db = new AppDbContext();
             List<StudentModel> lst = db.Students.ToList();
 
             foreach (StudentModel item in lst)
@@ -25,7 +25,6 @@ namespace AdoDotNet.ConsoleApp.EFCoreExample
 
         public void Edit(int Id)
         {
-            AppDbContext db = new AppDbContext();
             StudentModel? item = db.Students.FirstOrDefault(item => item.Id == Id);
             if (item is null)
             {
@@ -46,7 +45,6 @@ namespace AdoDotNet.ConsoleApp.EFCoreExample
                 FatherName = FatherName,
                 StuContent = StuContent
             };
-            AppDbContext db = new AppDbContext();
             db.Students.Add(student);
             int result = db.SaveChanges();
             string message = result > 0 ? "Create Successful" : "Failed";
@@ -55,7 +53,6 @@ namespace AdoDotNet.ConsoleApp.EFCoreExample
 
         public void Update(int Id, string StuName, string FatherName, string StuContent)
         {
-            AppDbContext db = new AppDbContext();
             StudentModel? item = db.Students.FirstOrDefault(item => item.Id == Id);
             if (item is null)
             {
@@ -72,7 +69,6 @@ namespace AdoDotNet.ConsoleApp.EFCoreExample
 
         public void Delete(int Id)
         {
-            AppDbContext db = new AppDbContext();
             StudentModel? item = db.Students.FirstOrDefault(item => item.Id == Id);
             if (item is null)
             {

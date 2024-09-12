@@ -13,8 +13,8 @@ namespace AdoDotNet.ConsoleApp.HttpClientExamples
     {
         public async Task Run()
         {
-            await Delete(1);
-            //await Create("Aye Aye", "Min Thein", "Aye Aye is Electronic Student");
+            //await Delete(1);
+            await Create("Ayye", "Mein", "Aye is Electronic Student");
             //await Read();
             //await Update(22, "Su Su", "Tin Aye", "Su Su is English Student");
 
@@ -28,12 +28,14 @@ namespace AdoDotNet.ConsoleApp.HttpClientExamples
             HttpClient Client = new HttpClient();
             HttpResponseMessage response = await Client.GetAsync("https://localhost:7288/api/Student");
             if (response.IsSuccessStatusCode)
-            {
+               {
+
                 string jsonString = await response.Content.ReadAsStringAsync();
                 Console.WriteLine(jsonString);
 
                 List<StudentModel> lst = JsonConvert.DeserializeObject<List<StudentModel>>(jsonString)!;
                 foreach (StudentModel student in lst)
+
                 {
                     Console.WriteLine(student.Id);
                     Console.WriteLine(student.StuName);
@@ -41,6 +43,7 @@ namespace AdoDotNet.ConsoleApp.HttpClientExamples
                     Console.WriteLine(student.StuContent);
                     Console.WriteLine("________________________________________________");
                 }
+
             }
         }
 

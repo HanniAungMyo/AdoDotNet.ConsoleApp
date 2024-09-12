@@ -55,7 +55,6 @@ function update(id, stuName, FatherName, stuContent) {
   };
   setlocalStorage(lstStr);
 }
-
 function deleteitem(id) {
   let lstStr = getItem();
   let lst = lstStr.filter((x) => x.id === id);

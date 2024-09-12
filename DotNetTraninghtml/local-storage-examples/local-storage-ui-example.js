@@ -1,21 +1,27 @@
 const tblStu = "Tbl_Stu";
 run();
 function run() {
-  // create("Tun Tun", "Aung Myint", "Tun Tun is Bio Student");
-  // read();
-  // const id = prompt("Enter ID");
-  // const stuName = prompt("Enter Student Name");
-  // const FatherName = prompt("Enter FatherName");
-  // const stuContent = prompt("Enter stuContent");
-  // update(id, stuName, FatherName, stuContent);
+  read();
 }
 function read() {
+  $("dataTable").html();
   const lstStr = getItem();
+  let html = "";
   for (i = 0; i < lstStr.length; i++) {
     let item = lstStr[i];
-    console.log(item.stuName);
-    console.log(item.FatherName);
-    console.log(item.stuContent);
+
+    // console.log(item.stuName);
+    // console.log(item.FatherName);
+    // console.log(item.stuContent);
+    html += `
+    <tr>
+          <th scope="row">${i + 1}</th>
+          <td>${item.stuName}</td>
+          <td>${item.FatherName}</td>
+          <td>${item.stuContent}</td>
+  </tr>
+    `;
+    $("#dataTable").html(html);
   }
 }
 function edit(id) {
@@ -87,3 +93,18 @@ function setlocalStorage(lstStr) {
   let jsonStr = JSON.stringify(lstStr);
   localStorage.setItem(tblStu, jsonStr);
 }
+
+$("#btnSave").click(function () {
+  const studentName = $("#name").val();
+  const fatherName = $("#fatherName").val();
+  const studentContent = $("#content").val();
+  create(studentName, fatherName, studentContent);
+
+  alert("Saving Successful");
+  $("#name").val("");
+  $("#fatherName").val("");
+  $("#content").val("");
+
+  $("#name").focus();
+  read();
+});

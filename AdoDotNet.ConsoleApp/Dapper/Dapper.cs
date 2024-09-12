@@ -19,14 +19,13 @@ namespace AdoDotNet.ConsoleApp.DapperEx
             UserID = "sa",
             Password = "sa@123"
         };
-
         public void Read()
         {
             string query = @"SELECT [Id],
-            [StuName],
-            [FatherName],
-            [StuContent]
-            FROM [dbo].[Tbl_Stu]";
+           [StuName],
+           [FatherName],
+           [StuContent]
+           FROM [dbo].[Tbl_Stu]";
             using IDbConnection db = new SqlConnection(sqlConnectionStringBuilder.ConnectionString);
             List<StudentModel> lst = db.Query<StudentModel>(query).ToList();
             foreach (StudentModel item in lst)
@@ -35,14 +34,14 @@ namespace AdoDotNet.ConsoleApp.DapperEx
                 Console.WriteLine(item.StuName);
                 Console.WriteLine(item.FatherName);
                 Console.WriteLine(item.StuContent);
+
             }
-            Console.WriteLine("Read");
         }
         public void Edit(int id)
         {
             StudentModel student = new StudentModel()
             {
-                Id = id
+                Id = id,
             };
             string query = @"SELECT [Id],
             [StuName],
@@ -50,45 +49,47 @@ namespace AdoDotNet.ConsoleApp.DapperEx
             [StuContent]
             FROM [dbo].[Tbl_Stu] WHERE Id=@Id";
             using IDbConnection db = new SqlConnection(sqlConnectionStringBuilder.ConnectionString);
-            StudentModel? item = db.Query<StudentModel>(query, student).FirstOrDefault();
+            StudentModel? item = db.Query(query, student).FirstOrDefault();
             if (item is null)
             {
                 Console.WriteLine("No Data Found");
             }
-
+            Console.WriteLine(item?.Id);
             Console.WriteLine(item?.StuName);
             Console.WriteLine(item?.FatherName);
             Console.WriteLine(item?.StuContent);
         }
-        public void Create(string StuName, string FatherName, string StuContent)
+        public void Create(string name, string fatherName, string stuContent)
         {
             StudentModel student = new StudentModel()
             {
-                StuName = StuName,
-                FatherName = FatherName,
-                StuContent = StuContent
+                StuName = name,
+                FatherName = fatherName,
+                StuContent = stuContent
             };
             string query = @"INSERT INTO [dbo].[Tbl_Stu]
-            ([StuName]
-            ,[FatherName]          
-            ,[StuContent])               
-        VALUES
+          ([StuName]
+          ,[FatherName]          
+           ,[StuContent])               
+       VALUES
             (@StuName                  
-            ,@FatherName                   
-            ,@StuContent)";
+           ,@FatherName                   
+           ,@StuContent)";
+
             using IDbConnection db = new SqlConnection(sqlConnectionStringBuilder.ConnectionString);
             int result = db.Execute(query, student);
             string message = result > 0 ? "Create Successful" : "Failed";
             Console.WriteLine(message);
+
         }
-        public void Update(int id, string StuName, string FatherName, string StuContent)
+        public void Update(int id, string name, string fatherName, string stuContent)
         {
             StudentModel student = new StudentModel()
             {
                 Id = id,
-                StuName = StuName,
-                FatherName = FatherName,
-                StuContent = StuContent
+                StuName = name,
+                FatherName = fatherName,
+                StuContent = stuContent
             };
             string query = @"UPDATE [dbo].[Tbl_Stu]
              SET [StuName] = @StuName
@@ -98,19 +99,20 @@ namespace AdoDotNet.ConsoleApp.DapperEx
             using IDbConnection db = new SqlConnection(sqlConnectionStringBuilder.ConnectionString);
             int result = db.Execute(query, student);
             string message = result > 0 ? "Update Successful" : "Failed";
+            Console.WriteLine(message);
         }
         public void Delete(int id)
         {
             StudentModel student = new StudentModel()
             {
-                Id = id
+                Id = id,
             };
             string query = @"DELETE FROM [dbo].[Tbl_Stu]
-                            WHERE @Id=Id";
+                           WHERE @Id=Id";
             using IDbConnection db = new SqlConnection(sqlConnectionStringBuilder.ConnectionString);
             int result = db.Execute(query, student);
             string message = result > 0 ? "Delete Successful" : "Failed";
-            Console.WriteLine(message);
         }
+
     }
 }
